@@ -22,6 +22,11 @@ public class LevelOrder {
         }
     }
 
+    /**
+     * N叉树的层序遍历：https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(n)
+     */
     public List<List<Integer>> levelOrder(Node root) {
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) {

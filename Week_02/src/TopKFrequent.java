@@ -5,8 +5,8 @@ public class TopKFrequent {
 
     /**
      * 前K个高频元素：https://leetcode-cn.com/problems/top-k-frequent-elements/
-     * 时间复杂度：O()
-     * 空间复杂度：O()
+     * 时间复杂度：O(nlogk)
+     * 空间复杂度：O(n)
      */
     public int[] topKFrequent(int[] nums, int k) {
         //先将每个元素的频率统计出来
@@ -22,7 +22,6 @@ public class TopKFrequent {
         //利用最小堆，保存频率最大的k个元素
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(map::get));
         map.forEach((key, value) -> {
-            System.out.println(key + "," + value + "," + priorityQueue.peek() + "," + map.get(priorityQueue.peek()));
             if (priorityQueue.size() < k) {
                 priorityQueue.add(key);
             } else if (value > map.get(priorityQueue.peek())) {
