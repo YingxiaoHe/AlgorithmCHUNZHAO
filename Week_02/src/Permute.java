@@ -26,7 +26,7 @@ public class Permute {
 
     private void dfs(int[] nums, int len, int depth, List<Integer> path, boolean[] used, List<List<Integer>> result) {
         if (depth == len) {
-            //完成一次遍历，保存并返回
+            //找到一个结果，保存并返回
             result.add(new ArrayList<>(path));
             return;
         }
@@ -35,7 +35,7 @@ public class Permute {
             if (!used[i]) {
                 path.add(nums[i]);
                 used[i] = true;
-
+                //递归遍历下一位数字
                 dfs(nums, len, depth + 1, path, used, result);
                 used[i] = false;
                 path.remove(path.size() - 1);
