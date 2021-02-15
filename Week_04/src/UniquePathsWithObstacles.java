@@ -7,17 +7,18 @@ public class UniquePathsWithObstacles {
      * 动态规划
      * 时间复杂度：O(mn)
      * 空间复杂度：O(n)
+     * 因每次遍历时需要对i-1及j-1的元素相加，那么使用一维数组（数组本身继承了上一列的数值)即可对i-1和i相加
      */
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int[] dp = new int[obstacleGrid[0].length];
         dp[0] = obstacleGrid[0][0] == 0 ? 1 : 0;
-        for (int[] ints : obstacleGrid) {
-            for (int j = 0; j < ints.length; j++) {
-                if (ints[j] == 1) {
+        for (int i = 0; i < obstacleGrid.length; i++) {
+            for (int j = 0; j < obstacleGrid[i].length; j++) {
+                if (obstacleGrid[i][j] == 1) {
                     dp[j] = 0;
                     continue;
                 }
-                if (j - 1 >= 0 && ints[j] == 0) {
+                if (j >= 1 && obstacleGrid[i][j] == 0) {
                     dp[j] += dp[j - 1];
                 }
             }
