@@ -75,6 +75,8 @@ public class LongestValidParentheses {
                 left = right = 0;
             }
         }
+        //因正循环一遍后，当左括号>右括号时，求不出最大值。
+        //所以再反向循环一遍，求两次循环的最大值。
         left = right = 0;
         for (int i = s.length() - 1; i >= 0; i--) {
             if (s.charAt(i) == '(') {
