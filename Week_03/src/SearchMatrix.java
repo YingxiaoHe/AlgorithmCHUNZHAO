@@ -46,7 +46,7 @@ public class SearchMatrix {
         int left = 0, right = m * n - 1;
         int pivotIdx = 0, pivotElement = 0;
         while (left <= right) {
-            pivotIdx = (left + right) / 2;
+            pivotIdx = left + (right - left) / 2;
             pivotElement = matrix[pivotIdx / n][pivotIdx % n];
             if (target == pivotElement) {
                 return true;
