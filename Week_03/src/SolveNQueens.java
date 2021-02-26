@@ -50,7 +50,7 @@ public class SolveNQueens {
             }
         }
         //判断右上角有没有皇后
-        for (int x = row - 1, y = col + 1; x >= 0 && y < chess[row].length; x--, y++) {
+        for (int x = row - 1, y = col + 1; x >= 0 && y < chess[x].length; x--, y++) {
             if (chess[x][y] == 'Q') {
                 return false;
             }
