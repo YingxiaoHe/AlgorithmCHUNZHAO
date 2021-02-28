@@ -34,8 +34,8 @@ public class CoinChange {
 
     /**
      * 动态规划
-     * 时间复杂度：O()
-     * 空间复杂度：O()
+     * 时间复杂度：O(n^2)
+     * 空间复杂度：O(n)
      */
     public int coinChange1(int[] coins, int amount) {
         if (coins.length == 0) {

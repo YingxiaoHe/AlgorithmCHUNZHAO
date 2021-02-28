@@ -73,11 +73,39 @@ public class TotalNQueens {
             while (availablePositions != 0) {
                 int position = availablePositions & (-availablePositions);
                 availablePositions = availablePositions & (availablePositions - 1);
-                count += solve(n , row + 1, col | position,
+                count += solve(n, row + 1, col | position,
                         (diagonals1 | position) << 1, (diagonals2 | position) >> 1);
 
             }
             return count;
+        }
+    }
+
+    /**
+     * 位运算
+     * 时间复杂度：O(n!)
+     * 空间复杂度：O(1)
+     */
+    private int size;
+    private int count;
+
+    public int totalNQueens3(int n) {
+        count = 0;
+        size = (1 << n) - 1;
+        solve2(0, 0, 0);
+        return count;
+    }
+
+    private void solve2(int row, int ld, int rd) {
+        if (row == size) {
+            count++;
+            return;
+        }
+        int pos = size & (~(row | ld | rd));
+        while (pos != 0) {
+            int p = pos & (-pos);
+            pos -= p;
+            solve2(row | p, (ld | p) << 1, (rd | p) >> 1);
         }
     }
 }
