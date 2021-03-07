@@ -26,12 +26,12 @@ public class IsAnagram {
             return false;
         }
         int[] letter = new int[24];
-        for (int i = 0; i < s.length(); i++) {
-            letter[s.charAt(i) - 'a']++;
+        for (char cs : s.toCharArray()) {
+            letter[cs - 'a']++;
         }
-        for (int i = 0; i < t.length(); i++) {
-            letter[t.charAt(i) - 'a']--;
-            if (letter[t.charAt(i) - 'a'] < 0) {
+        for (char ct : t.toCharArray()) {
+            letter[ct - 'a']--;
+            if (letter[ct - 'a'] < 0) {
                 return false;
             }
         }
