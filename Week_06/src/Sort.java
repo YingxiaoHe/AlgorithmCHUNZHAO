@@ -1,16 +1,10 @@
-学习笔记
+import java.util.PriorityQueue;
 
-    一个对排序总结非常好的网址：https://www.cnblogs.com/onepixel/p/7674659.html
-    带图片的总结地址：https://shimo.im/docs/8cQtpVqYwwXjTrRH/
-# 比较类排序
-    通过比较来决定元素间的相对次序，由于其时间复杂度不能突破O(nlogn)，因此也称为非线性时间比较类排序。
-# 非比较类排序
-    不通过比较来决定元素间的相对次序，它可以突破基于比较排序的时间下界，以线性时间运行，因此也称为线性时间非比较类排序。
-
-# 1、选择排序
-    每次找到最小值，然后放到待排序数组的起始位置。
-```java
+/**
+ * 排序算法模板
+ */
 public class Sort {
+
     /**
      * 选择排序
      * 时间复杂度：O(n^2)
@@ -24,18 +18,13 @@ public class Sort {
                     minIndex = j;
                 }
             }
-            int tmp = array[i];
+            int temp = array[i];
             array[i] = array[minIndex];
-            array[minIndex] = tmp;
+            array[minIndex] = temp;
         }
         return array;
     }
-}
-```
-# 2、插入排序
-    从前到后逐步构建有序序列。对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。
-```java
-public class Sort {
+
     /**
      * 插入排序
      * 时间复杂度：O(n^2)
@@ -53,12 +42,7 @@ public class Sort {
         }
         return array;
     }
-}
-```
-# 3、冒泡排序
-    每次比较相邻的元素，如果逆序，则交换。相当于一个反向的选择排序，将数组从后往前（从大到小）整理好。
-```java
-public class Sort {
+
     /**
      * 冒泡排序
      * 时间复杂度：O(n^2) LeetCode会超时
@@ -76,12 +60,7 @@ public class Sort {
         }
         return array;
     }
-}
-```
-# 4、快速排序
-    从数组中挑选出一个做为基准，将比基准小的放在它前面，比基准大的放在它后面。然后再对前后分区做相同操作。递归操作。先排序、再分区。
-```java
-public class Sort {
+
     /**
      * 快速排序
      * 时间复杂度：O(nlogn)
@@ -118,12 +97,7 @@ public class Sort {
         array[end] = temp;
         return count;
     }
-}
-```
-# 5、归并排序
-    先将数组分成左右两个分区，然后对两个分区内部进行排序，再将两个分区与按顺序排序。递归操作。快速排序正好相反，归并排序是先分区、再排序。
-```java
-public class Sort {
+
     /**
      * 归并排序
      * 时间复杂度：O(nlogn)
@@ -139,6 +113,7 @@ public class Sort {
             return;
         }
         int mid = (left + right) >> 1;
+
         mergeSort(array, left, mid);
         mergeSort(array, mid + 1, right);
         merge(array, left, mid, right);
@@ -156,14 +131,10 @@ public class Sort {
         while (j <= right) {
             temp[k++] = array[j++];
         }
+
         System.arraycopy(temp, 0, array, left, temp.length);
     }
-}
-```
-# 6、堆排序
-    利用堆的性质来进行排序
-```java
-public class Sort {
+
     /**
      * 堆排序
      * 时间复杂度：O(nlogn)
@@ -179,12 +150,7 @@ public class Sort {
         }
         return array;
     }
-}
-```
-# 7、计数排序
-    将每个元素出现的次数存入一个数组当中，数组下标即其元素的值。因元素要做为数组下标且数组的大小由其范围决定，所以计数排序必须规定数据的范围的整数。
-```java
-public class Sort {
+
     /**
      * 计数排序
      * 时间复杂度：O(n)
@@ -205,4 +171,3 @@ public class Sort {
         return array;
     }
 }
-```
