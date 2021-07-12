@@ -11,7 +11,7 @@ public class MajorityElement {
 
     /**
      * 时间负责度：O(n)
-     * 空间复杂度：O(n);
+     * 空间复杂度：O(n)
      */
     public int majorityElement(int[] nums) {
         if (nums.length == 1) {
@@ -38,7 +38,7 @@ public class MajorityElement {
 
     /**
      * 时间负责度：O(n)
-     * 空间复杂度：O(n);
+     * 空间复杂度：O(n)
      */
     public int majorityElement2(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
